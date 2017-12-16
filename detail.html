@@ -1,0 +1,40 @@
+<img src="" id="i1"  >
+	<p id="p1" >shashank </p>
+
+
+	<script type="text/javascript">
+	     var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange=function(){
+      if(this.readyState==4 && this.status==200){
+        //console.log(this.responseText);
+        var i=localStorage.getItem("id");
+         var store=JSON.parse(this.responseText);
+         if((i==store[0].id)){
+          document.getElementById("p1").innerHTML=store[0].content;
+           document.getElementById("i1").src=store[0].imageUrl;
+       }
+              if((i==store[1].id)){
+          document.getElementById("p1").textContent=store[1].content;
+           document.getElementById("i1").src=store[1].imageUrl;
+       }
+          if((i==store[2].id)){
+          document.getElementById("p1").textContent=store[2].content;
+           document.getElementById("i1").src=store[2].imageUrl;
+       }
+          if((i==store[3].id)){
+          document.getElementById("p1").textContent=store[3].content;
+           document.getElementById("i1").src=store[3].imageUrl;
+       }
+           document.getElementById("span1").innerHTML=store[0].id;
+            document.getElementById("span2").innerHTML=store[1].id;
+             document.getElementById("span3").innerHTML=store[2].id;
+              document.getElementById("span4").innerHTML=store[3].id;
+    };
+    //console.log(store[0].title);
+
+}
+    xhttp.open("GET","http://koushikmln.com:7500/blogs" ,true);//method url async  //fething the content from this url and using in our page
+    //send headers
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send();
+</script>
